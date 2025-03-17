@@ -83,17 +83,6 @@ body{
             text-decoration-style: dotted;
   }
 
-  /* .nav_links a:visited, .nav_links a:link {
-    
-  } */
-   /* !!!!!!!!!!!!
-   !
-   !
-   !
-   !
-   !
-   ! */
-
   .pricing{
     min-height: 475px;
   }
@@ -140,7 +129,7 @@ body{
     padding: 30px;
     text-align: center;
   }
-
+  
   .card > header {
     background: #288088;
     border: solid 2px #45ADAD;
@@ -160,7 +149,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: row wrap;
+    flex-flow: row wrap; /*so it can wrap into a "column" look*/
   }
 
   .gallery {
@@ -174,6 +163,7 @@ body{
     margin: 10px;
     width: 300px;
     align-self: stretch;
+    /* stretches photos vertically to fit container */
   }
 
   @media (min-width: 900px) {
@@ -190,9 +180,9 @@ body{
     .card {
       flex-basis: 275px;
     }
-    body > header {
+    body > header { /*makes header fixed*/
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /*fixes header layout for wider screen*/
       position: fixed;
       width: 100%;
     }
@@ -202,7 +192,8 @@ body{
   }
 
   @media (prefers-reduced-motion: reduce) {
-    #logo {
+    /* removing logo animation upon page startup */
+    #logo { 
       width: 475px;
       opacity: 1;
       animation: none;
@@ -210,6 +201,7 @@ body{
   }
 
   @media print and (orientation: portrait) {
+    /* adjusting for portrait print view */
     body {
       font-family: Arial, Helvetica;
       background-image: none;
@@ -219,17 +211,19 @@ body{
     }
     .nav_links {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-evenly; /*adjusts nav layout for print preview*/
     }
     .pricing {
       display: flex;
       align-items: flex-end;
+      flex-flow: row; /*fits card elements into one row*/
     }
     .card {
       flex-basis: 325px;
       border: solid 2px #45ADDD;
     }
-    .gallery {
+    /* removes gallery header/elements from view */
+    .gallery, #gallery {
       display: none;
     }
   }
